@@ -318,7 +318,7 @@ a.expand {
 	-o-background-size:cover;
 	-moz-background-size:cover;
 	-webkit-background-size:cover;
-	background-position:0 0;
+	background-position: center center;
 	background-repeat:repeat;
 	position:relative;
 	min-height:650px;
@@ -595,6 +595,7 @@ header .navbar-nav>li>a {
 /* =========================== FEATURES SECTION ============================== */
 #features {
 	background-image:url(../images/bg/header-bg11.jpg);
+	background-position: center center;
 	 background-attachment:fixed !important;
 	 background-size:cover;
 	-o-background-size:cover;
@@ -877,6 +878,7 @@ header .navbar-nav>li>a {
 /* =========================== SCREENSHOTS SECTION ============================== */
 #screenshots {
 	background-image:url(../images/bg/header-bg7.jpg);
+	background-position: center center;
 	 background-attachment:fixed;
 	 background-size:cover;
 	-o-background-size:cover;
