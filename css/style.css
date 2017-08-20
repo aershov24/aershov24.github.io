@@ -261,32 +261,9 @@ a.expand {
     filter: progid: DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#7c000000', endColorstr='#7c000000');
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
-	body {  
-	    height:100%;
-	    overflow: scroll;
-	    -webkit-overflow-scrolling: touch;
-	}
-
-	#home header {
-	    background-image: url(../images/bg/header-bg19.jpg);
-	    background-attachment: fixed !important;
-	    background-size: cover;
-	    -o-background-size: cover;
-	    -moz-background-size: cover;
-	    -webkit-background-size: cover;
-	    background-position: center center;
-	    background-repeat: repeat;
-	    position: relative;
-	    min-height: 650px;
-    	height: 100%;
-    	overflow: hidden;
-	}
-}
-
 #home header {
     background-image: url(../images/bg/header-bg19.jpg);
-    background-attachment: fixed !important;
+    background-attachment: scroll !important;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
