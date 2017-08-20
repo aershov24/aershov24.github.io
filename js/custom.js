@@ -286,7 +286,7 @@ Carousel-slider
 
             var loops = Math.ceil(options.speed / options.refreshInterval),
 
-                increment = ((options.to - options.from) / loops).toFixed(options.decimals);
+                increment = (options.to - options.from) / loops
 
 
 
@@ -361,7 +361,7 @@ Carousel-slider
 
             refreshInterval: 100, // how often the element should be updated
 
-            decimals: 1, // the number of decimal places to show
+            decimals: 0, // the number of decimal places to show
 
             onUpdate: null, // callback method for every time the element is updated,
 
