@@ -530,7 +530,7 @@ header .navbar-nav>li>a {
 #features {
     background-image: url(../images/bg/header-bg11.jpg);
     background-position: center center;
-    background-attachment: fixed !important;
+    background-attachment: scroll !important;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -811,7 +811,7 @@ header .navbar-nav>li>a {
 #screenshots {
     background-image: url(../images/bg/header-bg7.jpg);
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -940,6 +940,7 @@ header .navbar-nav>li>a {
 .how-it-works h3 {
     font-size: 22px;
     text-transform: uppercase;
+    color: #777777;
 }
 .how-it-works ul {
     list-style-type: none;
@@ -953,6 +954,7 @@ header .navbar-nav>li>a {
 }
 .benefits {
     position: relative;
+    padding: 0 0 30px;
 }
 .phone-image-right {
     margin-left: -25%;
