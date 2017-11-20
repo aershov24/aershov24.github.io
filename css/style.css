@@ -934,6 +934,10 @@ header .navbar-nav>li>a {
     padding-top: 90px;
     padding-bottom: 70px;
 }
+.container.post-inner {
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
 .how-it-works .header {
     padding-bottom: 35px;
 }
