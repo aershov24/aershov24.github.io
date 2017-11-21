@@ -2020,8 +2020,7 @@ blockquote {
 }
 .blog-single blockquote {
     border-left: 5px solid;
-    //margin: 50px 0px;
-    padding: 20px 10px;
+    padding: 20px 20px 20px 40px;
     font-size: 15px;
 }
 
