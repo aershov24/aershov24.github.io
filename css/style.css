@@ -2021,8 +2021,13 @@ blockquote {
     border-left: 5px solid;
     //margin: 50px 0px;
     padding: 20px 10px;
-    font-size: 13px;
+    font-size: 15px;
 }
+
+.blog-single a {
+    color: #EF6C00;
+}
+
 .blog-single blockquote img {
     float: left;
     margin: -20px 20px 0 0;
