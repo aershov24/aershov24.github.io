@@ -80,7 +80,7 @@
                     </div>
                     <!-- End Navigation Bar -->
                     <!-- Navigation Menu -->
-                  <nav id="topnav" role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+                    <nav id="topnav" role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="../index.html#home" class="scroll">Home</a></li>
                             <li><a href="../index.html#how-it-works" class="scroll">How it Works</a></li>
@@ -144,11 +144,10 @@
                     <div class="col-md-12 text-center">
                         <!-- Title --> 
                         <div class="title">
-                            <h2>Sun Smart When Working Outdoors</h2>
+                            <h2>Reflection and ultraviolet radiation</h2>
                         </div>
                         <!-- Description --> 
-                        <p class="desc">Why You Should Be Sun Smart When Working Outdoors</p>
-                        <img align="center" width="500" src="https://cdn-images-1.medium.com/max/800/1*UkreHSyLYuDsT5OTS1p5rw.jpeg">
+                        <p class="desc">What is the clouds effect on a daily UV Index level?</p>
                     </div>
                 </div>
                 <!-- Title & Desc Row Ends -->
@@ -156,57 +155,60 @@
                 <!-- How It Works Row Begins -->
                 <div class="row">
                     <div id="post-content" style="display: none;">
-For the vast majority of people in the US, overexposure to sunlight is not an
-issue. Many Americans even have an issue when it comes to Vitamin D deficiency.
-However, for many people who work outdoors, or otherwise stay outside often,
-they may be doing much more to their body than just tanning.
+Different kinds of reflective surfaces produce a different effect on a current ultravialet index (UV Index). UV rays can be reflected off of open water, grass, sand, snow, concrete and painted walls. You can get a sunburn in the shade or when skiing on a cold, winter day. 
 
-## Damage From The Sun
+Coarse and soft surfaces like grass are basically bounced less UV radiation than hard or smooth surfaces like concret. Less reflective colours could also be used to minimize exposure to UV rays.
 
-While sunlight is essential for the body and the creation of adequate amounts of
-Vitamin D, even a small amount of sun exposure can increase your risk for skin
-cancer. In the UK, about 8 in 10 cases of a skin cancer known as melanoma are
-caused by overexposure to the sun.
+## Reflective surfaces & UV Index
 
-There are two types of UV rays that are talked about when it comes to damaging
-your skin: UVA and UVB. UVB is the type that causes sunburn, while UVA is the
-type that penetrates deep into the skin, which damages DNA and ages it over
-time. This is why many doctors recommend everyone do a skin check monthly, such
-as looking for brown spots that are too large, or increases in size.
+Materials and the level of reflected Ultraviolet Radiation:
 
-Skin cancer can develop when the DNA in your skin gets damaged through too much
-sun exposure. This can be so potent that getting a sunburn even once every 2
-years can triple your risk for skin cancer. People who do work outside, like
-construction workers, farmers, and crossing guards, can be up to 10 times more
-likely to get this cancer, which makes it a serious concern for outdoor workers.
-The best practices when it comes to avoiding skin cancer, is to try to reduce UV
-exposure as much as possible.
+Material      |                    | Reflected level (%)    
+:-------------|:-------------------| -------------------: 
+**Asphat**    |New black roadway   |    4.1
+              |Old grey roadway    |    8.9
+**Concrete**  |Footpath            |    8.2 – 12.0
+**Grass**     |Grassland           |    0.8 – 1.6
+              |Lawn                |    2.0 – 5.0
+**Fibreglass**|Fibreglass boat deck|    9.1
+**Paint**     |White house pain    |    22.0
+**Sand**      |Wet beach sand      |    7.1
+              |Dry beach sand      |    15.0 – 18.0
+**Sand**      |Wet beach sand      |    7.1
+**Soil**      |Clay/humus          |    4.0-6.0
+**Water**     |Open water          |    3.3
+              |Open ocean          |    8.0
+              |Sea surf/white foam |    25.0-30.0
+**Snow**      |Old snow            |    50
+              |New snow            |    88    
+**Wood**      |Wood boat deck      |    6.6           
 
-## What is the UV Index?
 
-A great way to reduce UV exposure is by determining what the UV Index is. The UV
-Index is a scale that was created by the World Health Organization in order to
-determine the danger levels associated with UV radiation. While it can change
-depending on many factors, such as time of day and even weather, this number can
-go from 0 to 11 or even higher, the higher the number, the more risk you have of
-higher UV exposure.
+## UV Index reflection calculation
 
-For this reason, it is good to have a UV tracker like
-[UVIMate](https://uvimate.com/), which is a phone app that can tell you what the
-UVI is like now and will be in the next 6 hours. It also can tell you specific
-information based on skin type, SPF, and even remind you of when to reapply
-sunscreen. This can help you on those long days where you work outside, and can
-determine the best times to apply sunscreen or wear clothes like hats to help
-protect you from the suns harmful rays.
+[UVIMate](https://play.google.com/store/apps/details?id=au.com.aershov.uvmate) calculates UV Index with consideration of reflection factor based on the current area conditions and with usage of the following alghoritm:
+ 
+```
+public double getReflectionFactor(String currentArea)
+{
+    if (currentArea.equals("city")))
+        return 1.10;
+    if (currentArea.equals("grassy_land")))
+        return 1.05;
+    if (currentArea.equals("sandbeach")))
+        return 1.20;
+    if (currentArea.equals("open_water")))
+        return 1.08;
+    if (currentArea.equals("snow")))
+        return 1.6;
+    if (currentArea.equals("not_set")))
+        return 1.0;
 
-Working outdoors can be highly beneficial, and can improve many aspects of your
-health. However, that does not mean that you have to put yourself at risk of
-getting cancer as a result.
-
+    return 1.0;
+}
+```
 ### References:
-1. [https://www.epa.gov/sunsafety/uv-index-scale-1](https://www.epa.gov/sunsafety/uv-index-scale-1)
-2. [http://www.skincancer.org/skin-cancer-information/early-detection/if-you-can-spot-it-you-can-stop-it](http://www.skincancer.org/skin-cancer-information/early-detection/if-you-can-spot-it-you-can-stop-it)
-3. [http://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/how-the-sun-and-uv-cause-cancer](http://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/how-the-sun-and-uv-cause-cancer)
+1. [Guide on exposure to solar ultraviolet radiation](https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-exposure-solar-ultraviolet-radiation.pdf)
 
                             </div>
                           <div id="markdown-contents" class="col-md-12 about-right text-left post-body">
@@ -309,6 +311,7 @@ getting cancer as a result.
 
          <script type="text/javascript">
             var sdconv     = new showdown.Converter();
+            sdconv.setOption('tables', true);
             var innerHTML = sdconv.makeHtml($("#post-content").text());
             $("#markdown-contents").html(innerHTML);
         </script>

@@ -945,6 +945,7 @@ header .navbar-nav>li>a {
 .post-body {
     padding: 20px;
     color:#777777;
+    font-size: 17px;
 }
 .how-it-works .header {
     padding-bottom: 35px;

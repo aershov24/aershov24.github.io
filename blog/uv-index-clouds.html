@@ -80,7 +80,7 @@
                     </div>
                     <!-- End Navigation Bar -->
                     <!-- Navigation Menu -->
-                  <nav id="topnav" role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+                    <nav id="topnav" role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="../index.html#home" class="scroll">Home</a></li>
                             <li><a href="../index.html#how-it-works" class="scroll">How it Works</a></li>
@@ -144,11 +144,10 @@
                     <div class="col-md-12 text-center">
                         <!-- Title --> 
                         <div class="title">
-                            <h2>Sun Smart When Working Outdoors</h2>
+                            <h2>Clouds and UV radiation</h2>
                         </div>
                         <!-- Description --> 
-                        <p class="desc">Why You Should Be Sun Smart When Working Outdoors</p>
-                        <img align="center" width="500" src="https://cdn-images-1.medium.com/max/800/1*UkreHSyLYuDsT5OTS1p5rw.jpeg">
+                        <p class="desc">What is the clouds effect on a daily UV Index level?</p>
                     </div>
                 </div>
                 <!-- Title & Desc Row Ends -->
@@ -156,57 +155,34 @@
                 <!-- How It Works Row Begins -->
                 <div class="row">
                     <div id="post-content" style="display: none;">
-For the vast majority of people in the US, overexposure to sunlight is not an
-issue. Many Americans even have an issue when it comes to Vitamin D deficiency.
-However, for many people who work outdoors, or otherwise stay outside often,
-they may be doing much more to their body than just tanning.
+Clouds are different. So is their effect to the UV Index. On average, clouds do reduce UV radiation, but it still far away from stops the skin damage. A lot of people think they can't get a sunburn on a cloudy day. Unfortunately, it doesn't work this way.
 
-## Damage From The Sun
+### Cloud factor
 
-While sunlight is essential for the body and the creation of adequate amounts of
-Vitamin D, even a small amount of sun exposure can increase your risk for skin
-cancer. In the UK, about 8 in 10 cases of a skin cancer known as melanoma are
-caused by overexposure to the sun.
+Clouds factor is affected by many things, for example cloud's thickness, cloud's position in the atmosphere and clouds configuration on the sky. Patchy clouds could even intensify radiation from the sun by the effect of a reflection factor. In that case the cloud works just like a mirror and focus all the sun rays to the ground.
 
-There are two types of UV rays that are talked about when it comes to damaging
-your skin: UVA and UVB. UVB is the type that causes sunburn, while UVA is the
-type that penetrates deep into the skin, which damages DNA and ages it over
-time. This is why many doctors recommend everyone do a skin check monthly, such
-as looking for brown spots that are too large, or increases in size.
+For [UVIMate mobile application](https://play.google.com/store/apps/details?id=au.com.aershov.uvmate) we have implemented a very simple but effective [model](https://www.epa.gov/sunsafety/calculating-uv-index-0) to calculate a current UV Index with clouds factor. Basically we need to know a current UV level and local clouds coverage (from 0 to 1) provided by [UV Index API](http://uvimate.herokuapp.com/), thus a new UV Index could be calculated as:
+ 
+```
+// - Clear skies allow virtually 100% of UV to pass through, cloud cover (CC) < 0.2,
+// - scattered clouds transmit 89%, CC > 0.2, < 0.7,
+// - broken clouds transmit 73%, CC > 0.7, < 0.9,
+// - and overcast skies transmit 31%, CC > 0.9.
+// Resource: https://www.epa.gov/sunsafety/calculating-uv-index-0
 
-Skin cancer can develop when the DNA in your skin gets damaged through too much
-sun exposure. This can be so potent that getting a sunburn even once every 2
-years can triple your risk for skin cancer. People who do work outside, like
-construction workers, farmers, and crossing guards, can be up to 10 times more
-likely to get this cancer, which makes it a serious concern for outdoor workers.
-The best practices when it comes to avoiding skin cancer, is to try to reduce UV
-exposure as much as possible.
-
-## What is the UV Index?
-
-A great way to reduce UV exposure is by determining what the UV Index is. The UV
-Index is a scale that was created by the World Health Organization in order to
-determine the danger levels associated with UV radiation. While it can change
-depending on many factors, such as time of day and even weather, this number can
-go from 0 to 11 or even higher, the higher the number, the more risk you have of
-higher UV exposure.
-
-For this reason, it is good to have a UV tracker like
-[UVIMate](https://uvimate.com/), which is a phone app that can tell you what the
-UVI is like now and will be in the next 6 hours. It also can tell you specific
-information based on skin type, SPF, and even remind you of when to reapply
-sunscreen. This can help you on those long days where you work outside, and can
-determine the best times to apply sunscreen or wear clothes like hats to help
-protect you from the suns harmful rays.
-
-Working outdoors can be highly beneficial, and can improve many aspects of your
-health. However, that does not mean that you have to put yourself at risk of
-getting cancer as a result.
-
-### References:
-1. [https://www.epa.gov/sunsafety/uv-index-scale-1](https://www.epa.gov/sunsafety/uv-index-scale-1)
-2. [http://www.skincancer.org/skin-cancer-information/early-detection/if-you-can-spot-it-you-can-stop-it](http://www.skincancer.org/skin-cancer-information/early-detection/if-you-can-spot-it-you-can-stop-it)
-3. [http://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/how-the-sun-and-uv-cause-cancer](http://www.cancerresearchuk.org/about-cancer/causes-of-cancer/sun-uv-and-cancer/how-the-sun-and-uv-cause-cancer)
+public double calculateCloudsFactor()
+{
+    if (cloudCover < 0.2)
+        return uvi;
+    if (cloudCover >= 0.2 && cloudCover < 0.7)
+        return uvi*0.89;
+    if (cloudCover >= 0.7 && cloudCover < 0.9)
+        return uvi*0.73;
+    if (cloudCover >= 0.9)
+        return uvi*0.31;
+    return uvi;
+}
+```
 
                             </div>
                           <div id="markdown-contents" class="col-md-12 about-right text-left post-body">
