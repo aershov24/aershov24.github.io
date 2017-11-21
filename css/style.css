@@ -1,5 +1,5 @@
 body {
-    color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0);
     font-size: 15px;
     font-weight: 300;
     padding: 0;
@@ -930,13 +930,21 @@ header .navbar-nav>li>a {
     background: #FFFFFF;
     border-bottom: 2px solid #dce0e3;
 }
+.blog-post {
+    background: #FFFFFF;
+    border-bottom: 2px solid #dce0e3;
+}
 .container.how-it-works-inner {
     padding-top: 90px;
     padding-bottom: 70px;
 }
 .container.post-inner {
     padding-top: 50px;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
+}
+.post-body {
+    padding: 20px;
+    color:#777777;
 }
 .how-it-works .header {
     padding-bottom: 35px;
@@ -1578,8 +1586,8 @@ bg-text {
     padding: 20px 20px 20px 40px;
 }
 .container.download-now-inner {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .iphone {
     color: #fff;
@@ -2011,8 +2019,8 @@ blockquote {
 }
 .blog-single blockquote {
     border-left: 5px solid;
-    margin: 50px 0px;
-    padding: 30px 20px;
+    //margin: 50px 0px;
+    padding: 20px 10px;
     font-size: 13px;
 }
 .blog-single blockquote img {
